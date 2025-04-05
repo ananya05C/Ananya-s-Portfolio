@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #1A1A2E;
+            color: #FFF5E1;
+        }
+        .header {
+            background: #FF5733;
+            color: #FFF5E1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            text-align: left;
+            margin-left: 10px;
+        }
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+        .nav a {
+            color: #FFF5E1;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: #1A1A2E;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 140px 40px 40px;
+        }
+        .projects, .contact, .experience, .skills {
+            width: 60%;
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 245, 225, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .projects h2, .contact h2, .skills h2, .experience h2 {
+            margin-bottom: 20px;
+            color: #FF5733;
+        }
+        .contact {
+            background: #FF5733;
+            color: #FFF5E1;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #1A1A2E;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            background: #FF5733;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #FFF5E1;
+            color: #FF5733;
+        }
+        section {
+            min-height: 100vh;
+            padding-top: 160px;
+            scroll-margin-top: 160px;
+        }
+        .home-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px 20px;
+            max-width: 80%;
+            margin-top: -50px; /* Move content slightly lower */
+        }
+        .home-text {
+            flex: 1;
+            text-align: left;
+        }
+        .home-text h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+        .home-text p {
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+        .passionate-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            font-weight: normal;
+        }
+        .home-container img {
+            width: 230px; /* Adjust size */
+            height: 230px; /* Adjust size */
+            border-radius: 50%;
+            margin-left: 40px;
+            margin-top: -20px; /* Adjust as needed */
+        }
+
+        #about {
+            text-align: justify;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.8;
+            margin-top: -190px; /* Move About Me section up */
+        }
+
+        #about h2 {
+            text-align: center; /* Center the h2 */
+            color: #FF5733; /* Orange color for h2 */
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+.experience p {
+    text-align: center;  
+    font-size: 1.2em; /* Increase text size */
+line-height: 1.8; 
+}
+
+.skills p {
+    font-size: 1.3em; /* Increase font size (adjust as needed) */
+    text-align: left; /* Ensure left alignment */
+    margin-bottom: 10px; /* Add spacing between points */
+    padding-left: 20px; /* Slight indentation for better readability */
+}
+.skills {
+       padding: 10px 15px; /* Reduce padding (top-bottom, left-right) */
+}
+.skills-box {
+    display: inline-block; /* Adjusts width to fit content */
+    width: auto;
+}
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background: rgba(255, 245, 225, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    color: #FF5733;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+#contact {
+  padding: 40px;
+  background-color: #2C3E50; /* Dark background */
+  color: #ECF0F1; /* Light text */
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  color: #E74C3C; /* Accent color */
+}
+
+#contact .contact-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+#contact .contact-info a {
+  color: #E74C3C;
+  text-decoration: none;
+}
+
+#contact .social-links {
+  margin-top: 20px;
+}
+
+#contact .social-links a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: #E74C3C;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#contact .social-links a:hover {
+  color: #C0392B; /* Darker red on hover */
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 style="font-family: 'Roboto', serif;">Ananya's Portfolio</h1>
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="content-container">
+        <section id="home" class="home-container">
+            <div class="home-text">
+                <h2>Welcome to My Portfolio</h2>
+                <p class="passionate-text">Hi, I'm Ananya C,</p>
+                <p class="passionate-text" style="text-align: justify;">A passionate developer turning ideas into reality by crafting seamless and engaging web and mobile experiences.</p>
+            </div>
+            <img src="https://img.freepik.com/premium-photo/female-software-developer-work_161362-86473.jpg" alt="Profile Image">
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm Ananya, a passionate developer with expertise in both front-end and back-end technologies. I create seamless web and mobile experiences by writing clean, efficient code. I enjoy tackling new challenges, collaborating on innovative solutions, and building responsive websites and mobile apps. Outside of coding, I explore tech trends, read, and work on side projects. My goal is to keep learning and contributing to impactful projects.</p>
+            <p>Let’s work together and create something great!</p>
+        </section>
+
+        <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="project-container">
+        <div class="project-card">
+            <h3>TaskEase </h3>
+            <p>A productivity app built using Flutter that helps users manage tasks efficiently with reminders, notifications, and a clean interface.</p>
+            <a href="https://github.com/ananya05C/TASKEASE" class="btn" target="_blank">View Project</a>
+
+        </div>
+        <div class="project-card">
+            <h3>Societas</h3>
+            <p>Societas connects residents associations for updates, fundraising, and alerts while promoting education, health, and community welfare.</p>
+            <a href="https://github.com/ananya05C/SOCIETAS" class="btn" target="_blank">View Project</a>
+        </div>
+           </div>
+</section>
+
+
+        <section class="skills" id="skills">
+             <h2>Skills & Expertise</h2>
+            <p><strong>🔸 Programming Languages:</strong> HTML, CSS, JavaScript, Python, Dart, Java, C</p>
+            <p><strong>🔸 Frontend Development:</strong> Bootstrap</p>
+            <p><strong>🔸 Backend Development:</strong>PHP,Django</p>
+            <p><strong>🔸 Mobile App Development:</strong> Flutter</p>
+            <p><strong>🔸 Databases:</strong> MySQL,SQLite</p>
+            <p><strong>🔸 Tools & Version Control:</strong> Git, GitHub</p>
+           
+        </section>
+        <section class="experience" id="experience">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Flutter Developer Intern - Maitexa Technologies, Kozhikode</h3>
+                    <p>Duration: 10 days</p>
+                    <p>🔸Developed and optimized mobile applications using Flutter.</p>
+
+ <p>🔸Gained hands-on experience in UI/UX design and state management.</p>
+<p>🔸Improved app performance and debugging skills.</p>
+
+                </div>
+                
+            </div>
+        </section>
+        <section id="contact">
+  <h2>Get in Touch</h2>
+  <p>Feel free to reach out to me via email or connect with me on social media.</p>
+
+  <div class="contact-info">
+    <p><strong>Email:</strong> <a href="ananyapradeep2002@gmail.com">ananyapradeep2002@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:91 8089470661">+91 8089470661</a></p>
+    <p><strong>Location:</strong> Calicut, India</p>
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/ananya-c-41703524a">LinkedIn</a>
+    <a href="https://github.com/ananya05C" target="_blank">GitHub</a>
+     </div>
+</section>
+
+
+    </div>
+</body>
+</html>
